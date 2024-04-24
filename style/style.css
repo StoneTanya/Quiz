@@ -3,15 +3,7 @@ h1 {
   line-height: 1.1;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.body {
-  margin: 0;
-  display: flex;
+body {
   min-width: 320px;
   min-height: 100vh;
   background: url(https://images.squarespace-cdn.com/content/v1/5e3625ac8e5e5b2d211dcd3b/1617413142869-FYEVVTO4POSDLFVO97FQ/ganapathy-kumar-GLmhbqbn1WA-unsplash.jpg?format=2500w);
@@ -29,14 +21,14 @@ h1 {
 }
 
 #question,
-#answer {
+.answer {
   color: white;
   font-size: 2rem;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 10px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  display: none;
-  padding: 5%;
+  padding: 2%;
+  background: none;
 }
 
 button {
@@ -48,10 +40,10 @@ button {
   color: #fff;
 }
 
-#button_ask {
+.answer_incorrect {
   background-color: rgb(228, 48, 84);
 }
 
-#button_answer {
+.answer_correct {
   background-color: rgb(48, 172, 31);
 }
