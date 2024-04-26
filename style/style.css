@@ -1,49 +1,248 @@
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   min-width: 320px;
+  background-color: rgb(17, 9, 133);
+  overflow: hidden;
+}
+
+main {
+  position: relative;
   min-height: 100vh;
-  background: url(https://images.squarespace-cdn.com/content/v1/5e3625ac8e5e5b2d211dcd3b/1617413142869-FYEVVTO4POSDLFVO97FQ/ganapathy-kumar-GLmhbqbn1WA-unsplash.jpg?format=2500w);
-  background-repeat: no-repeat;
 }
 
-.title {
-  font-family: "Patua One", cursive;
-  font-size: 120px;
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-open {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.start-page__title {
+  font-family: "Paytone One", sans-serif;
+  font-size: 6em;
   font-weight: 700;
-  line-height: 153px;
-  letter-spacing: -0.02em;
-  text-align: left;
-  color: white;
+  line-height: 120%;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: rgb(90, 154, 228);
+  margin: 1% 0 3% 0;
 }
 
-#question,
+/*
+ * Анимированные псевдоэлементы на фоне  
+ */
+
+main:before, main:after {
+  content: "";
+  width: 70vmax;
+  height: 70vmax;
+  position: absolute;
+  background: rgba(255, 255, 255, .07);
+  left: -20vmin;
+  top: -20vmin;
+  animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+  z-index: 1;
+  will-change: border-radius, transform;
+  transform-origin: 55% 55%;
+  pointer-events: none;
+}
+
+main:after {
+  width: 70vmin;
+  height: 70vmin;
+  left: auto;
+  right: -10vmin;
+  top: auto;
+  bottom: 0;
+  animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
+  transform-origin: 20% 20%;
+}
+
+@keyframes morph {
+  0% {border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;}
+  100% {border-radius: 40% 60%;}
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/*
+ * Модальное окно викторины с вопросами и ответами 
+ */
+
+.quiz_modal__preview {
+  background-color: rgb(175, 183, 31);
+  position: absolute;
+  left: 50%;
+  padding: 5% 6%;
+  border-radius: 30% 70% 57% 43% / 32% 30% 70% 68%;
+  max-width: 600px;
+  max-height: 600px;
+  transform: translateX(-50%);
+}
+
+.quiz_modal__question,
 .answer {
   color: white;
+  display: inline-block;
   font-size: 2rem;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 10px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  padding: 2%;
+  padding: 2% 4%;
+  margin: 3% 3%;
   background: none;
 }
 
-button {
-  padding: 10px 20px;
-  margin: 5%;
-  border-radius: 10px;
+.answer {
   font-size: 24px;
   border: none;
-  color: #fff;
 }
 
-.answer_incorrect {
+.incorrect-answer {
   background-color: rgb(228, 48, 84);
 }
 
-.answer_correct {
+.correct-answer {
   background-color: rgb(48, 172, 31);
+}
+
+/**
+ * Оверлей под экранами
+ */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+  overflow: auto;
+
+  background-color: rgba(132, 130, 130, 0.3);
+}
+
+/**
+ * Кнопка закрытия модального окна
+ */
+.cancel {
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  width: 42px;
+  height: 42px;
+
+  font-size: 0;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  background-image: url("./assets/img/icon_cancel.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 0;
+  border-radius: 2px;
+
+  opacity: 0.6;
+}
+
+.cancel:hover,
+.cancel:focus {
+  background-color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+}
+
+.cancel:active {
+  transform: translateY(1px);
+}
+
+/**
+ * Анимация на стартовой странице
+ */
+
+h2.ml8 {
+  /* font-family: "Righteous", sans-serif; */
+  font-family: "Patua One", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 4.5em;
+  color: #fefefe;
+  width: 4em;
+  height: 4em;
+}
+
+.ml8 .letters-container {
+  position: absolute;
+  /* left: 0; */
+  right: 41vw;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 1em;
+}
+
+.ml8 .letters {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  line-height: 0.7em;
+  right: -0.12em;
+  top: -0.2em;
+  font-size: 0.9em;
+  letter-spacing: -0.02em;
+}
+
+.ml8 .bang {
+  font-size: 1em;
+  top: auto;
+  left: -0.06em;
+}
+
+.ml8 .circle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+
+.ml8 .circle-white {
+  width: 5em;
+  height: 5em;
+  border: 2px dashed white;
+  border-radius: 4em;
+}
+
+.ml8 .circle-dark {
+  width: 4.2em;
+  height: 4.2em;
+  background-color: rgb(175, 183, 31);
+  border-radius: 4em;
+  z-index: 1;
+}
+
+.ml8 .circle-dark-dashed {
+  border-radius: 2.4em;
+  background-color: transparent;
+  border: 2px dashed rgb(175, 183, 31);
+  width: 4.3em;
+  height: 4.3em;
 }

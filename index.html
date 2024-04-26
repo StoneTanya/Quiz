@@ -6,23 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Righteous&display=swap" rel="stylesheet">
     <link href="quiz.css" rel="stylesheet">
     <title>Let's QUIZZ</title>
 </head>
 
 <body>
-    <div id="app container">
-        <section class="row d-flex flex-column justify-content-center">
-            <h1 class="title">Quiz simulator</h1>
-            <h2 id="question" class="col-11"></h2>
-            <div class="answers"></div>
+    <main>
+        <section class="start-page container">
+            <h1 class="start-page__title">Quiz simulator</h1>
+            <h2 class="ml8 quiz_modal__open">
+                <span class="letters-container">
+                    <span class="letters letters-left">Let's</span>
+                    <span class="letters bang">Go!</span>
+                </span>
+                <span class="circle circle-white"></span>
+                <span class="circle circle-dark"></span>
+                <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
+            </h2>
         </section>
-    </div>
+
+        <!-- Модальное окно викторины с вопросами и ответами -->
+        <section class="quiz_modal overlay hidden">
+            <div class="quiz_modal__preview">
+                <!-- Вопрос -->
+                <h3 id="question" class="quiz_modal__question col-11"></h3>
+                <!-- Варианты ответов -->
+                <div class="quiz_modal__answers"></div>
+                <!-- Кнопка для показа следующего вопроса -->
+                <button type="button" class="quiz_modal__next-question">next</button>
+                <!-- Кнопка закрытия окна -->
+                <button type="reset" class="quiz_modal__cancel  cancel" id="quiz-cancel">close</button>
+            </div>
+        </section>
+    </main>
 
     <template class="col-6" id="answers">
         <button class="answer"></button>
@@ -30,9 +51,5 @@
 
     <script type="module" src="/main.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-        </script>
 </body>
-
 </html>
