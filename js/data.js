@@ -1,4 +1,4 @@
-const BASE_URL = "https://opentdb.com/";
+const BASE_URL = "https://opentdb.com";
 
 const loadData = async (route, method = 'GET', body = null) => {
   const response = await fetch(`${BASE_URL}${route}`, { method, body });
