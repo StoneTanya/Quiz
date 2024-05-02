@@ -1,7 +1,6 @@
 const SINGLE_QUOTATION_MARK = 39;
 const DOUBLE_QUOTATION_MARK = 34;
 const AMPERSANT = 38;
-
 const regExp = /&[#a-z0-9]+;/gi;
 
 const decodeHtmlEntity = (str) => {
@@ -23,6 +22,7 @@ const decodeHtmlEntity = (str) => {
 
 const isEscDown = (e) => e.key === 'Escape';
 
+//Fisher–Yates Shuffle
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));

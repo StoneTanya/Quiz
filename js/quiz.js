@@ -5,6 +5,7 @@ const nextQuestion = document.querySelector(".quiz_modal__next-question");
 
 import { getData } from "./data";
 import { decodeHtmlEntity, shuffle } from "./util";
+import { showGettingError } from "./alerts";
 
 let data = [];
 
@@ -14,8 +15,7 @@ const bootstrap = async () => {
     data = result.results;
     getQuiz(data);
   } catch (error) {
-    //   showGetDataError();
-    console.error(error);
+    showGettingError();
   }
 };
 
@@ -26,7 +26,7 @@ const getQuiz = (questions) => {
   const answers = [...results.incorrect_answers, results.correct_answer];
   const correctAnswer = results.correct_answer;
   shuffle(answers);
-  
+
   question.textContent = decodeHtmlEntity(results.question);
 
   answers.forEach((answer) => {

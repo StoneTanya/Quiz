@@ -14,12 +14,11 @@ const onDocumentKeydown = (evt) => {
 };
 
 const openQuizModal = () => {
+  bootstrap();
   quizModal.classList.remove("hidden");
   document.body.classList.add("modal-open");
   startPage.classList.add("hidden");
   document.addEventListener("keydown", onDocumentKeydown);
-
-  bootstrap();
 };
 
 function closeQuizModal() {
@@ -34,3 +33,4 @@ closeQuizModalElement.addEventListener("click", closeQuizModal);
 openQuizModalElement.addEventListener("click", openQuizModal);
 
 
+export {closeQuizModal};
