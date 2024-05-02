@@ -4,7 +4,7 @@ const question = document.querySelector(".quiz_modal__question");
 const nextQuestion = document.querySelector(".quiz_modal__next-question");
 
 import { getData } from "./data";
-import { decodeHtmlEntity } from "./util";
+import { decodeHtmlEntity, shuffle } from "./util";
 
 let data = [];
 
@@ -24,9 +24,9 @@ const getQuiz = (questions) => {
   let questionNo = 0;
   const results = questions[questionNo];
   const answers = [...results.incorrect_answers, results.correct_answer];
-  //Todo перемешать массив с ответами, чтобы ответы располагались в хаотичном порядке
   const correctAnswer = results.correct_answer;
-
+  shuffle(answers);
+  
   question.textContent = decodeHtmlEntity(results.question);
 
   answers.forEach((answer) => {
