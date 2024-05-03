@@ -1,13 +1,15 @@
 const SINGLE_QUOTATION_MARK = 39;
 const DOUBLE_QUOTATION_MARK = 34;
 const AMPERSANT = 38;
+const ATILDE = 227;
+const UUML = 252;
 const regExp = /&[#a-z0-9]+;/gi;
 
 const decodeHtmlEntity = (str) => {
     return str.replace(regExp, function (HTML_Entities) {
       let num;
       switch (HTML_Entities) {
-        case "&apos;":
+        case "&apos;" && "&#039;":
           num = SINGLE_QUOTATION_MARK;
           break;
         case "&quot;":
@@ -15,6 +17,12 @@ const decodeHtmlEntity = (str) => {
           break;
         case "&amp;":
           num = AMPERSANT;
+          break;
+        case "&atilde;":
+          num = ATILDE;
+          break;
+        case "&uuml;":
+          num = UUML;
       }
       return String.fromCharCode(num);
     });
