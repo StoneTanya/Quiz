@@ -102,7 +102,6 @@ main:after {
 .answer, .quiz_modal__next-question {
   color: white;
   font-size: 2rem;
-  font-family: Arial, Helvetica, sans-serif;
   border-radius: 10px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   padding: 2% 4%;
@@ -110,6 +109,10 @@ main:after {
   background: none;
 }
 
+.quiz_modal__question-counter {
+  color: white;
+
+}
 .answer, .quiz_modal__next-question {
   font-size: 24px;
   border: none;

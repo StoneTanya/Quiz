@@ -2,12 +2,16 @@ const answerTemplate = document.querySelector("#answers").content;
 const answersBox = document.querySelector(".quiz_modal__answers");
 const question = document.querySelector(".quiz_modal__question");
 const nextButton = document.querySelector(".quiz_modal__next-question");
+const questionCounterSpan = document.querySelector(".quiz_modal__question-counter");
 
 import { getData } from "./data";
 import { decodeHtmlEntity, shuffle } from "./util";
 import { showGettingError } from "./alerts";
 
 let data = [];
+let score = 0;
+const MAX_SCORE = 10;
+let currentQuestion = 1;
 
 const bootstrap = async () => {
   try {
@@ -19,14 +23,28 @@ const bootstrap = async () => {
   }
 };
 
+const finishQuiz = () => {
+  question.textContent = `Вы ответили правильно на ${score} из ${MAX_SCORE} вопросов.`;
+  nextButton.classList.add("hidden");
+  answersBox.classList.add("hidden");
+};
+
+const nextQuestion = () => {
+  currentQuestion++;
+  if (currentQuestion > MAX_SCORE) {
+    finishQuiz();
+  } else {
+    bootstrap();
+  }
+};
+
 const getQuiz = (questions) => {
   nextButton.classList.add("hidden");
+  questionCounterSpan.textContent = `${currentQuestion} / ${MAX_SCORE}`;
   clearAnswers();
-  let questionNo = 0;
-  const results = questions[questionNo];
+  const results = questions[currentQuestion];
   const answers = [...results.incorrect_answers, results.correct_answer];
   const correctAnswer = results.correct_answer;
-
   shuffle(answers);
 
   question.textContent = decodeHtmlEntity(results.question);
@@ -36,14 +54,12 @@ const getQuiz = (questions) => {
     const answerButton = element.querySelector(".answer");
     answerButton.textContent = decodeHtmlEntity(answer);
     answersBox.append(answerButton);
-
     //для правильного ответа устанавливается атрибут data-correct="true"
     if (answerButton.innerHTML === decodeHtmlEntity(correctAnswer)) {
       answerButton.setAttribute("data-correct", "true");
     }
     answerButton.addEventListener("click", checkAnswer);
   });
-  questionNo++;
 };
 
 const clearAnswers = () => {
@@ -56,7 +72,7 @@ const checkAnswer = (evt) => {
   if (evt.target.dataset.correct) {
     // если да, добавляем класс корректного ответа для стилизации
     answerSelected.classList.add("correct-answer");
-    //todo добавить вызов функции, подсчитывающей баллы за "раунд"
+    score++;
   } else {
     // если нет, добавляем класс некорректного ответа
     answerSelected.classList.add("incorrect-answer");
@@ -65,7 +81,8 @@ const checkAnswer = (evt) => {
     displayCorrectAnswer.classList.add("correct-answer");
   }
   nextButton.classList.remove("hidden");
-  nextButton.addEventListener("click", bootstrap);
+  nextButton.addEventListener("click", nextQuestion);
 };
+
 
 export { bootstrap };
