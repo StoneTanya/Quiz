@@ -1,5 +1,5 @@
 const quizModal = document.querySelector(".quiz_modal");
-const closeQuizModalElement = document.querySelector(".quiz_modal__cancel");
+const closeQuizModalElement = quizModal.querySelector(".quiz_modal__cancel");
 const openQuizModalElement = document.querySelector(".quiz_modal__open");
 const startPage = document.querySelector(".start-page");
 

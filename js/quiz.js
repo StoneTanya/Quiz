@@ -1,7 +1,7 @@
 const answerTemplate = document.querySelector("#answers").content;
 const answersBox = document.querySelector(".quiz_modal__answers");
 const question = document.querySelector(".quiz_modal__question");
-const nextQuestion = document.querySelector(".quiz_modal__next-question");
+const nextButton = document.querySelector(".quiz_modal__next-question");
 
 import { getData } from "./data";
 import { decodeHtmlEntity, shuffle } from "./util";
@@ -20,11 +20,13 @@ const bootstrap = async () => {
 };
 
 const getQuiz = (questions) => {
+  nextButton.classList.add("hidden");
   clearAnswers();
   let questionNo = 0;
   const results = questions[questionNo];
   const answers = [...results.incorrect_answers, results.correct_answer];
   const correctAnswer = results.correct_answer;
+
   shuffle(answers);
 
   question.textContent = decodeHtmlEntity(results.question);
@@ -52,7 +54,7 @@ const checkAnswer = (evt) => {
   const answerSelected = evt.target.closest(".answer");
   //проверяем на нажатой кнопке атрибут correct
   if (evt.target.dataset.correct) {
-    // если да, добавляем класс корректного ответа
+    // если да, добавляем класс корректного ответа для стилизации
     answerSelected.classList.add("correct-answer");
     //todo добавить вызов функции, подсчитывающей баллы за "раунд"
   } else {
@@ -62,8 +64,8 @@ const checkAnswer = (evt) => {
     let displayCorrectAnswer = document.querySelector("[data-correct='true']");
     displayCorrectAnswer.classList.add("correct-answer");
   }
+  nextButton.classList.remove("hidden");
+  nextButton.addEventListener("click", bootstrap);
 };
-
-nextQuestion.addEventListener("click", bootstrap);
 
 export { bootstrap };

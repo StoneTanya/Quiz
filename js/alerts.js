@@ -1,6 +1,6 @@
 import { closeQuizModal } from "./modal";
 
-const ALERT_SHOW_TIME = 5000;
+const ALERT_SHOW_TIME = 3000;
 
 const showGettingError = () => {
   const errorTemplate = document.querySelector('#data-error').content;

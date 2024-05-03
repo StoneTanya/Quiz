@@ -2,13 +2,6 @@ import anime from 'animejs/lib/anime.es.js';
 
 const animation = anime.timeline({loop: true})
   .add({
-    targets: '.ml8 .circle-white',
-    scale: [0, 3],
-    opacity: [1, 0],
-    easing: "easeInOutExpo",
-    rotateZ: 360,
-    duration: 1100
-  }).add({
     targets: '.ml8 .circle-container',
     scale: [0, 1],
     duration: 1100,
