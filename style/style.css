@@ -115,6 +115,10 @@ main:after {
   border: none;
 }
 
+.answer:hover {
+  cursor: url("./assets/img/icon-cursor.svg"), auto;
+}
+
 .incorrect-answer {
   background-color: rgba(188, 9, 45, 0.725);
 }
@@ -158,7 +162,7 @@ main:after {
   font-size: 0;
 
   background-color: rgba(255, 255, 255, 0.2);
-  background-image: url("./assets/img/icon_cancel.svg");
+  background-image: url("./assets/img/icon-cancel.svg");
   background-position: center;
   background-repeat: no-repeat;
 
@@ -172,6 +176,7 @@ main:after {
 .cancel:focus {
   background-color: rgba(255, 255, 255, 0.4);
   opacity: 1;
+  cursor: pointer;
 }
 
 .cancel:active,
@@ -183,6 +188,7 @@ main:after {
   background: rgba(0,0,0,0);
 	color: rgb(228, 48, 84);
 	box-shadow: inset 0 0 0 3px rgb(228, 48, 84);
+  cursor: url("./assets/img/icon-cursor.svg"), auto;
 }
 
 /**
@@ -190,14 +196,13 @@ main:after {
  */
 
 h2.ml8 {
-  /* font-family: "Righteous", sans-serif; */
   font-family: "Patua One", serif;
   font-weight: 700;
   font-style: normal;
   font-size: 4.5em;
   color: #fefefe;
-  width: 4em;
-  height: 4em;
+  /* width: 4em;
+  height: 4em; */
 }
 
 .ml8 .letters-container {
@@ -207,6 +212,10 @@ h2.ml8 {
   top: 0;
   bottom: 0;
   height: 1em;
+}
+
+.letters-container:hover {
+  cursor: url("./assets/img/icon-cursor.svg"), auto;
 }
 
 .ml8 .letters {
