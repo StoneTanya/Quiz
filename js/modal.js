@@ -3,8 +3,8 @@ const closeQuizModalElement = quizModal.querySelector(".quiz_modal__cancel");
 const openQuizModalElement = document.querySelector(".quiz_modal__open");
 const startPage = document.querySelector(".start-page");
 
-import { bootstrap } from "./quiz";
 import { isEscDown } from "./util";
+import { bootstrap} from "./state";
 
 const onDocumentKeydown = (evt) => {
   if (isEscDown(evt)) {
@@ -21,7 +21,7 @@ const openQuizModal = () => {
   document.addEventListener("keydown", onDocumentKeydown);
 };
 
-function closeQuizModal() {
+const closeQuizModal = () => {
   quizModal.classList.add("hidden");
   document.body.classList.remove("modal-open");
   startPage.classList.remove("hidden");

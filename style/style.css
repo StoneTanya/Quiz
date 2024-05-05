@@ -93,8 +93,8 @@ main:after {
   top: 10%;
   padding: 5% 6%;
   border-radius: 30% 70% 57% 43% / 32% 30% 70% 68%;
-  max-width: 600px;
-  max-height: 700px;
+  max-width: 1000px;
+  max-height: 600px;
   transform: translateX(-50%);
 }
 
@@ -111,8 +111,8 @@ main:after {
 
 .quiz_modal__question-counter {
   color: white;
-
 }
+
 .answer, .quiz_modal__next-question {
   font-size: 24px;
   border: none;
@@ -133,6 +133,20 @@ main:after {
 .quiz_modal__next-question {
   background-color: rgb(228, 48, 84);
   margin-left: 70%;
+}
+
+.quiz_modal__play-again {
+  padding: 3% 3%;
+  border-radius: 30%;
+  border: 1px solid black;
+  /* background-color:rgb(128, 208, 242); */
+  color: black;
+  text-decoration: none;
+}
+
+.quiz_modal__result {
+  color:rgb(0, 0, 0);
+  box-shadow: none;
 }
 
 /**

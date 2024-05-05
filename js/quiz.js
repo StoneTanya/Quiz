@@ -1,46 +1,43 @@
 const answerTemplate = document.querySelector("#answers").content;
-const answersBox = document.querySelector(".quiz_modal__answers");
-const question = document.querySelector(".quiz_modal__question");
-const nextButton = document.querySelector(".quiz_modal__next-question");
-const questionCounterSpan = document.querySelector(".quiz_modal__question-counter");
+const quizArea = document.querySelector(".quiz_modal__preview");
+const answersBox = quizArea.querySelector(".quiz_modal__answers");
+const question = quizArea.querySelector(".quiz_modal__question");
+const nextButton = quizArea.querySelector(".quiz_modal__next-question");
+const questionCounterSpan = quizArea.querySelector(".quiz_modal__question-counter");
+const playAgainButton = quizArea.querySelector(".quiz_modal__play-again");
 
-import { getData } from "./data";
+import { bootstrap } from "./state";
 import { decodeHtmlEntity, shuffle } from "./util";
-import { showGettingError } from "./alerts";
+import { data } from "./state";
 
-let data = [];
 let score = 0;
 const MAX_SCORE = 10;
-let currentQuestion = 1;
-
-const bootstrap = async () => {
-  try {
-    const result = await getData();
-    data = result.results;
-    getQuiz(data);
-  } catch (error) {
-    showGettingError();
-  }
-};
+let currentQuestion = 0;
 
 const finishQuiz = () => {
-  question.textContent = `Вы ответили правильно на ${score} из ${MAX_SCORE} вопросов.`;
-  nextButton.classList.add("hidden");
   answersBox.classList.add("hidden");
+  nextButton.classList.add("hidden");
+  questionCounterSpan.classList.add("hidden");
+  question.textContent = `Правильных ответов: ${score} из ${MAX_SCORE}.`;
+
+  playAgainButton.classList.remove("hidden");
+  question.classList.add("quiz_modal__result");
+  
+  playAgainButton.addEventListener("click", bootstrap);
 };
 
 const nextQuestion = () => {
   currentQuestion++;
-  if (currentQuestion > MAX_SCORE) {
+  if (currentQuestion+1 > MAX_SCORE) {
     finishQuiz();
   } else {
-    bootstrap();
+    getQuiz(data);
   }
 };
 
 const getQuiz = (questions) => {
   nextButton.classList.add("hidden");
-  questionCounterSpan.textContent = `${currentQuestion} / ${MAX_SCORE}`;
+  questionCounterSpan.textContent = `${currentQuestion+1} / ${MAX_SCORE}`;
   clearAnswers();
   const results = questions[currentQuestion];
   const answers = [...results.incorrect_answers, results.correct_answer];
@@ -55,7 +52,7 @@ const getQuiz = (questions) => {
     answerButton.textContent = decodeHtmlEntity(answer);
     answersBox.append(answerButton);
     //для правильного ответа устанавливается атрибут data-correct="true"
-    if (answerButton.innerHTML === decodeHtmlEntity(correctAnswer)) {
+    if (answerButton.textContent === decodeHtmlEntity(correctAnswer)) {
       answerButton.setAttribute("data-correct", "true");
     }
     answerButton.addEventListener("click", checkAnswer);
@@ -85,4 +82,4 @@ const checkAnswer = (evt) => {
 };
 
 
-export { bootstrap };
+export { getQuiz };
