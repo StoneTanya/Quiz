@@ -1,23 +1,25 @@
 # Let's QUIZZ!
-Викторина на английском языке, разработана на основе данных из базы Open Trivia API JSON.
+Поиграйте на сайте: [Let's QUIZZ](/).
+Викторина составлена на английском языке, вопросы и ответы получены через сервис Open Trivia API JSON.
 
 ## Содержание
 - [Технологии](#технологии)
-- [User Stories](#user-stories)
+- [How it works](#how-it-works)
 - [Deployment](#deployment)
 - [Источники](#источники)
 
-## User Stories
+## How it works
+Посмотри на видео, как я играю:
+<video src="./assets/video/how-it-works.mp4" width="320" height="240" controls></video>
 
 ## Технологии
-- Java Script
+- JavaScript
 - Vite
-- HTML5
-- CSS3
-- Bootstrap
+- HTML
+- CSS
 
 ## Deployment
 Посмотреть и поиграть можно в опубликованной версии сайта по [ссылке]().
-Чтобы развернуть проект на своем устройстве создай `fork` у себя в git-профиле, клонируй репозиторий (`git clone`).
+
 
 
