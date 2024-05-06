@@ -18,11 +18,10 @@ const finishQuiz = () => {
   answersBox.classList.add("hidden");
   nextButton.classList.add("hidden");
   questionCounterSpan.classList.add("hidden");
-  question.textContent = `Правильных ответов: ${score} из ${MAX_SCORE}.`;
-
+  question.innerHTML = `Правильных ответов: ${score} из ${MAX_SCORE}! <img src="./assets/img/cracker.png" alt="firework" width="40px"/>`;
   playAgainButton.classList.remove("hidden");
   question.classList.add("quiz_modal__result");
-  
+
   playAgainButton.addEventListener("click", bootstrap);
 };
 
@@ -42,6 +41,7 @@ const getQuiz = (questions) => {
   const results = questions[currentQuestion];
   const answers = [...results.incorrect_answers, results.correct_answer];
   const correctAnswer = results.correct_answer;
+  
   shuffle(answers);
 
   question.textContent = decodeHtmlEntity(results.question);
@@ -80,6 +80,5 @@ const checkAnswer = (evt) => {
   nextButton.classList.remove("hidden");
   nextButton.addEventListener("click", nextQuestion);
 };
-
 
 export { getQuiz };

@@ -3,8 +3,6 @@ import { showGettingError, alertGettingDataProcess } from "./alerts";
 import { getQuiz } from "./quiz";
 let data = [];
 
-
-
 const bootstrap = async () => {
     alertGettingDataProcess();
   try {

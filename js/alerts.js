@@ -17,6 +17,7 @@ const showGettingError = () => {
 };
 
 const alertGettingDataProcess = () => {
-  document.querySelector(".quiz_modal__question-counter").textContent = 'Получаю данные...'
+  document.querySelector(".quiz_modal__question").textContent = 'Получаю данные...'
 };
+
 export {showGettingError, alertGettingDataProcess};
