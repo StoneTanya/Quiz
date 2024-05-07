@@ -61,7 +61,7 @@
 - CSS
 - [animejs](https://animejs.com/)
   
-## <a id="development">Разработка</a>
+## <a id="development">Использование и разработка</a>
 Для установки и запуска проекта Vite требует [Node.js](https://nodejs.org/en/) версии >=12.0.0. 
 Для запуска проекта на своем компьютере сделайте форк `fork` и клонируйте репозиторий: `git clone https://github.com/StoneTanya/Quiz.git`  
 Перейдите в папку с проектом `cd quiz`
