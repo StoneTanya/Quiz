@@ -123,7 +123,7 @@ main:after {
 }
 
 .answer:hover {
-  cursor: url("./assets/img/icon-cursor.svg"), auto;
+  cursor: url("./public/assets/img/icon-cursor.svg"), auto;
 }
 
 .incorrect-answer {
@@ -150,7 +150,7 @@ main:after {
 
 .quiz_modal__play-again:hover {
   color: rgb(15, 144, 213);
-  cursor: url("./assets/img/icon-cursor.svg"), auto;
+  cursor: url("./public/assets/img/icon-cursor.svg"), auto;
 }
 
 .quiz_modal__play-again:active {
@@ -191,7 +191,7 @@ main:after {
   font-size: 0;
 
   background-color: rgba(255, 255, 255, 0.2);
-  background-image: url("./assets/img/icon-cancel.svg");
+  background-image: url("./public/assets/img/icon-cancel.svg");
   background-position: center;
   background-repeat: no-repeat;
 
@@ -217,7 +217,7 @@ main:after {
   background: rgba(0,0,0,0);
 	color: rgb(228, 48, 84);
 	box-shadow: inset 0 0 0 3px rgb(228, 48, 84);
-  cursor: url("./assets/img/icon-cursor.svg"), auto;
+  cursor: url("./public/assets/img/icon-cursor.svg"), auto;
 }
 
 /**
@@ -243,7 +243,7 @@ h2.ml8 {
 }
 
 .letters-container:hover {
-  cursor: url("./assets/img/icon-cursor.svg"), auto;
+  cursor: url("./public/assets/img/icon-cursor.svg"), auto;
 }
 
 .ml8 .letters {
