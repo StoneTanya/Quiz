@@ -148,6 +148,11 @@ main:after {
   font-size: 1.3em;
 }
 
+.quiz_modal__play-again:hover {
+  color: rgb(15, 144, 213);
+  cursor: url("./assets/img/icon-cursor.svg"), auto;
+}
+
 .quiz_modal__play-again:active {
   color: rgb(15, 144, 213);
 }
