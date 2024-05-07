@@ -35,11 +35,11 @@
 ## How it works
 Демонстрация игры:
 ### Анимация на стартовой странице:
-<img src="./assets/img/start-quiz.gif" width="280" height="240"></img>
+<img src="./assets/img/start-quiz.gif" width="240" height="240"></img>
 ### Механика игры:
-<img src="./assets/img/quiz.gif" width="280" height="240"></img>
+<img src="./assets/img/quiz.gif" width="240" height="240"></img>
 ### Финальный экран, завершение квиза и итоговый результат:
-<img src="./assets/img/finish-quiz.gif" width="280" height="240"></img>
+<img src="./assets/img/finish-quiz.gif" width="240" height="240"></img>
 
 ## To do
 - [x] Разработать минимально необходимый функционал: вывод вопросов, ответов, проверка ответа (верно/не верно), подсчет и вывод конечного результата.
