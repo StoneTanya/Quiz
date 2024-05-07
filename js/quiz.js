@@ -9,6 +9,7 @@ const playAgainButton = quizArea.querySelector(".quiz_modal__play-again");
 import { bootstrap } from "./state";
 import { decodeHtmlEntity, shuffle } from "./util";
 import { data } from "./state";
+import imgUrl from "../assets/cracker.png";
 
 let score = 0;
 const MAX_SCORE = 10;
@@ -18,7 +19,7 @@ const finishQuiz = () => {
   answersBox.classList.add("hidden");
   nextButton.classList.add("hidden");
   questionCounterSpan.classList.add("hidden");
-  question.innerHTML = `Правильных ответов: ${score} из ${MAX_SCORE}! <img src="/cracker.png" alt="firework" width="40px"/>`;
+  question.innerHTML = `Правильных ответов: ${score} из ${MAX_SCORE}! <img src=${imgUrl} alt="firework" width="40px"/>`;
   playAgainButton.classList.remove("hidden");
   question.classList.add("quiz_modal__result");
 
