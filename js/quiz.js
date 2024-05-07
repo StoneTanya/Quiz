@@ -18,7 +18,7 @@ const finishQuiz = () => {
   answersBox.classList.add("hidden");
   nextButton.classList.add("hidden");
   questionCounterSpan.classList.add("hidden");
-  question.innerHTML = `Правильных ответов: ${score} из ${MAX_SCORE}! <img src="./public/assets/img/cracker.png" alt="firework" width="40px"/>`;
+  question.innerHTML = `Правильных ответов: ${score} из ${MAX_SCORE}! <img src="/cracker.png" alt="firework" width="40px"/>`;
   playAgainButton.classList.remove("hidden");
   question.classList.add("quiz_modal__result");
 
