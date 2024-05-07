@@ -37,16 +37,16 @@
 ### Стартовая страница
 <img src="./assets/img/for-readme/start.png" width="50%"></img>
 ### Анимация на стартовой странице:
-<img src="./assets/img/for-readme/start-quiz.gif" width="320" height="240"></img>
+<img src="./assets/img/for-readme/start-quiz.gif" width="240" height="240"></img>
 ### Механика игры:
-<img src="./assets/img/for-readme/quiz.gif" width="320" height="240"></img>
+<img src="./assets/img/for-readme/quiz.gif" width="240" height="240"></img>
 #### Правильный ответ:
 <img src="./assets/img/for-readme/correct-answer.png" width="50%"></img>
 #### Неправильный ответ:
 <img src="./assets/img/for-readme/uncorrect-answer.png" width="50%"></img>
 ### Финальный экран, завершение квиза и итоговый результат:
 <img src="./assets/img/for-readme/finish.png" width="50%"></img>
-<img src="./assets/img/for-readme/finish-quiz.gif" width="320" height="240"></img>
+<img src="./assets/img/for-readme/finish-quiz.gif" width="240" height="240"></img>
 
 ## To do
 - [x] Разработать минимально необходимый функционал: вывод вопросов, ответов, проверка ответа (верно/не верно), подсчет и вывод конечного результата.
